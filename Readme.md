@@ -22,7 +22,7 @@ To install:
 
     <script>
           $(function() {
-              $('.button').ingo({
+              $('YOUR BUTTON SELECTOR NAME').ingo({
                 ingoId: 'INSERT INGO_ID HERE',
                 manual: 'INSERT LINK FOR MANUAL REGISTRATION HERE'
               });
