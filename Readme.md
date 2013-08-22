@@ -12,7 +12,7 @@ To install:
     <link rel="stylesheet" href="http://cdn.ingo.me/css/main.css">
     ```
 
-2. Add jquery and plugin scripts: at the bottom of your page:
+2. Add jquery and plugin scripts: at the bottom of your page (right before `</body>` tag):
 
     ```html
 
