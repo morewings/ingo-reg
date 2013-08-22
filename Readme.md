@@ -8,27 +8,27 @@ To install:
 
 1. Add plugin styles in `<head>`:
 
-```html
-<link rel="stylesheet" href="http://cdn.ingo.me/css/main.css">
-```
+    ```html
+    <link rel="stylesheet" href="http://cdn.ingo.me/css/main.css">
+    ```
 
 2. Add jquery and plugin scripts: at the bottom of your page:
 
-```html
+    ```html
 
-....    
-<script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
-<script src="http://cdn.ingo.me/js/jquery.ingo.js"></script>
-    
-<script>
-      $(function() {
-          $('.button').ingo({
-            ingoId: 'INSERT INGO_ID HERE',
-            manual: 'INSERT LINK FOR MANUAL REGISTRATION HERE'
+    ....
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+    <script src="http://cdn.ingo.me/js/jquery.ingo.js"></script>
+
+    <script>
+          $(function() {
+              $('.button').ingo({
+                ingoId: 'INSERT INGO_ID HERE',
+                manual: 'INSERT LINK FOR MANUAL REGISTRATION HERE'
+              });
           });
-      });
-</script>
-```
+    </script>
+    ```
 
 Supported options:
 
