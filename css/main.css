@@ -1,13 +1,9 @@
-.ingo-popup-open {
-  margin: 0;
-  padding: 0;
-  border: 0;
-}
+/* CSS crunched with Crunch - http://crunchapp.net/ */
 .ingo-popup-wrap {
   position: fixed;
   width: 100%;
   height: 100%;
-  background: url('//ingo.production.static.s3.amazonaws.com/registration-popup/img/bg.png') repeat;
+  background: url('//cdn.ingo.me/img/bg.png') repeat;
   top: 0;
   display: none;
 }
@@ -71,7 +67,7 @@
 }
 .ingo-popup a.ingo-popup-close {
   position: absolute;
-  background: url('//ingo.production.static.s3.amazonaws.com/registration-popup/img/close.png');
+  background: url('//cdn.ingo.me/img/close.png');
   width: 14px;
   height: 15px;
   right: -20px;
@@ -93,22 +89,27 @@
   margin-right: 5px;
 }
 .ingo-popup .fb:before {
-  background: url('//ingo.production.static.s3.amazonaws.com/registration-popup/img/fb.png');
+  background: url('//cdn.ingo.me/img/fb.png');
 }
 .ingo-popup .in:before {
-  background: url('//ingo.production.static.s3.amazonaws.com/registration-popup/img/in.png');
+  background: url('//cdn.ingo.me/img/in.png');
 }
 .ingo-popup .gg:before {
-  background: url('//ingo.production.static.s3.amazonaws.com/registration-popup/img/gg.png');
+  background: url('//cdn.ingo.me/img/gg.png');
 }
 .ingo-popup .manual {
   text-align: center;
+  margin-top: 30px;
 }
 .ingo-popup .manual span {
   display: block;
   color: #838484;
   margin-bottom: 15px;
   font-style: italic;
+}
+.ingo-popup .manual a {
+  font-size: 14px;
+  opacity: .8;
 }
 .ingo-popup .bottom {
   position: absolute;
@@ -126,7 +127,7 @@
   vertical-align: middle;
 }
 .ingo-popup .bottom span.logo {
-  background: url('//ingo.production.static.s3.amazonaws.com/registration-popup/img/small-logo.png');
+  background: url('//cdn.ingo.me/img/small-logo.png');
   width: 58px;
   height: 17px;
   margin-left: 5px;

@@ -13,15 +13,15 @@
         popupHtml += '  <div class="ingo-popup">';
         popupHtml += '    <h3>Let your network know<br>you\'re coming</h3>';
         popupHtml += '    <a class="ingo-popup-close" href="#"></a>';
-        if(options.facebook) {
-            size += 1;
-            popupHtml += '    <a class="fb" href="' + ingoAuthenticationUrl(options.ingoBaseUrl, options.ingoId, 'facebook') + '">';
-            popupHtml += '    Register with Facebook</a>';
-        }    
         if(options.linkedin) {
             size += 1;
             popupHtml += '    <a class="in" href="' + ingoAuthenticationUrl(options.ingoBaseUrl, options.ingoId, 'linkedin') + '">';
             popupHtml += '    Register with LinkedIn</a>';
+        }
+        if(options.facebook) {
+            size += 1;
+            popupHtml += '    <a class="fb" href="' + ingoAuthenticationUrl(options.ingoBaseUrl, options.ingoId, 'facebook') + '">';
+            popupHtml += '    Register with Facebook</a>';
         }
         if(options.google) {
             size += 1;
@@ -31,7 +31,7 @@
         if(options.manual) {
             withManual = true;
             popupHtml += '    <div class="manual">';
-            popupHtml += '      <span>or go</span>';
+            popupHtml += '      <span>or</span>';
             popupHtml += '      <a href="' + options.manual + '">' + options.manualText + '</a>';
             popupHtml += '    </div>';
         }
@@ -65,7 +65,7 @@
             linkedin: true,
             facebook: true,
             manual: false,
-            manualText: 'Directly to Registration'
+            manualText: 'Manually Register'
         }, options);
         
         if(!options.ingoId) throw new Error('To make working ingo plugin you should specify in options ingoId');
