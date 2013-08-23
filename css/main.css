@@ -6,6 +6,7 @@
   background: url('//cdn.ingo.me/img/bg.png') repeat;
   top: 0;
   display: none;
+  z-index: 99999;
 }
 .ingo-popup-open .ingo-popup-wrap {
   display: block;
