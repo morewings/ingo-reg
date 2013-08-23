@@ -50,7 +50,7 @@
         }
         if(!body.hasClass(popUpOpenClass)) {
             body.addClass(popUpOpenClass);
-            __it('openPopup');
+//            __it('openPopup');
         }
     };
     
