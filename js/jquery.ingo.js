@@ -11,8 +11,7 @@
         var popupHtml = '', size = 0, withManual = false;
 
         popupHtml += '  <div class="ingo-popup">';
-        popupHtml += '    <h3>Let your network know<br>you\'re coming</h3>';
-        popupHtml += '    <a class="ingo-popup-close" href="#"></a>';
+        popupHtml += "    <h3>Speed up registration with<\/h3>";
         if(options.linkedin) {
             size += 1;
             popupHtml += '    <a class="in" href="' + ingoAuthenticationUrl(options.ingoBaseUrl, options.ingoId, 'linkedin') + '">';
@@ -28,18 +27,14 @@
             popupHtml += '    <a class="gg" href="' + ingoAuthenticationUrl(options.ingoBaseUrl, options.ingoId, 'google') + '">';
             popupHtml += '    Register with Google</a>';
         }
+        popupHtml += '    <div class="manual">';
         if(options.manual) {
             withManual = true;
-            popupHtml += '    <div class="manual">';
-            popupHtml += '      <span>or</span>';
-            popupHtml += '      <a href="' + options.manual + '">' + options.manualText + '</a>';
-            popupHtml += '    </div>';
+            popupHtml += '      <a class=\"pull-left\" href="' + options.manual + '">' + options.manualText + '</a>';
         }
-        popupHtml += '    <div class="bottom">';
-        popupHtml += '      <span>Powered by </span><span class="logo"></span>';
+        popupHtml += "      <a href=\"#\" class=\"ingo-popup-close pull-right\"><\/a>";
         popupHtml += '    </div>';
         popupHtml += '  </div>';
-
         return '<div class="ingo-popup-wrap ' + 'size-' + size + ' ' + (withManual? 'with-manual' : '') +'">' + popupHtml + '</div>';
     };
     
@@ -50,7 +45,6 @@
         }
         if(!body.hasClass(popUpOpenClass)) {
             body.addClass(popUpOpenClass);
-//            __it('openPopup');
         }
     };
     
