@@ -59,7 +59,7 @@
             linkedin: true,
             facebook: true,
             manual: false,
-            manualText: 'Manually Register'
+            manualText: 'Or register manually'
         }, options);
         
         if(!options.ingoId) throw new Error('To make working ingo plugin you should specify in options ingoId');

@@ -1,6 +1,6 @@
 @s3Path: '//cdn.ingo.me';
 @basePath: @s3Path;
-@maxHeight: 250px;
+@maxHeight: 225px;
 
 
 .pull-left{
@@ -48,7 +48,7 @@
 
 .ingo-popup-wrap{
   &.size-1{
-    @height: @maxHeight - 2 * 55px;
+    @height: @maxHeight - 2 * 50px;
     .ingo-popup{
       height: @height - 50px;
       margin-top: -(@height - 50px)/2;
@@ -59,7 +59,7 @@
     }
   }
   &.size-2{
-    @height: @maxHeight - 1 * 55px;//225
+    @height: @maxHeight - 1 * 50px;//225
     .ingo-popup{
       height: @height - 50px;
       margin-top: -(@height - 50px)/2;
@@ -95,7 +95,7 @@
   border-radius: 5px;
   -webkit-box-shadow:  0px 0px 3px 1px rgba(0, 0, 0, .4);
   box-shadow:  0px 0px 3px 1px rgba(0, 0, 0, .4);
-  padding: 10px;
+  padding: 10px 10px 5px;
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
   box-sizing: border-box;
@@ -105,6 +105,7 @@
 //  z-index: 99999;
   h3{
     margin-top: 0;
+    margin-bottom: 10px;
     text-align: left;
     font-size: 17px;
     font-weight: normal;
@@ -137,7 +138,7 @@
   .in,
   .gg{
     line-height: 30px;
-    margin-bottom: 15px;
+    margin-bottom: 10px;
     width: 230px;
     height: 40px;
     text-indent: -9999px;
