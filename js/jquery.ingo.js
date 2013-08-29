@@ -59,10 +59,15 @@
             linkedin: true,
             facebook: true,
             manual: false,
-            manualText: 'Or register manually'
+            manualText: 'Or register manually',
+            autostart: false
         }, options);
         
         if(!options.ingoId) throw new Error('To make working ingo plugin you should specify in options ingoId');
+
+        if(options.autostart){
+            openPopUp(options);
+        }
         
         $('body').delegate('.ingo-popup-close', 'click.ingo.registration-popup.close', function(e) {
             e.preventDefault();
