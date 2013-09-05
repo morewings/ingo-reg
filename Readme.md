@@ -42,7 +42,7 @@ Supported options:
 
 `headerText` (string, default - 'Speed up registration with') - text for popup header
 
-`smallPopup` (string, default - false) - if 'true' hides top and bottop parts op popup
+`smallPopup` (true|false, default - false) - if 'true', hides top and bottom parts op popup
 
 `ingoId` (string, __requred__ and no default) - it is id of conference in InGo, it is __required__ to make plugin working!
 
