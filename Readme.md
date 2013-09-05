@@ -1,8 +1,8 @@
-# InGo Registration Popup
+Verson: 0.2
 
-Plugin working with jquery version >= 1.4.2.
+Plugin working with jquery version >= 1.7.2.
 
-It is jquery plugin to install it on sites of our parthers.
+It is JQuery plugin to install it on sites of our parthers.
 
 To install:
 
@@ -23,8 +23,8 @@ To install:
     <script>
           $(function() {
               $('YOUR BUTTON SELECTOR NAME').ingo({
-                ingoId: 'INSERT INGO_ID HERE',
-                manual: 'INSERT LINK FOR MANUAL REGISTRATION HERE'
+                ingoId: '', //INSERT INGO_ID HERE
+                manual: '' //INSERT LINK FOR MANUAL REGISTRATION HERE
               });
           });
     </script>
@@ -40,5 +40,10 @@ Supported options:
 
 `manual` (string, default - false) - this should be a url of registration page
 
+`headerText` (string, default - 'Speed up registration with') - text for popup header
+
+`smallPopup` (true|false, default - false) - if 'true', hides top and bottom parts op popup
+
 `ingoId` (string, __requred__ and no default) - it is id of conference in InGo, it is __required__ to make plugin working!
 
+That information can be used to autofill the registration form.
