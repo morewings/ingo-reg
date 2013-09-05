@@ -26,7 +26,6 @@
 .ingo-popup-open .ingo-popup-wrap {
   display: block;
 }
-
 /*.ingo-popup-wrap{
   &.size-1{
     @height: @maxHeight - 2 * 50px;
@@ -62,7 +61,6 @@
     }
   }
 }*/
-
 .ingo-popup {
   background-color: #f0f0f0;
   position: absolute;

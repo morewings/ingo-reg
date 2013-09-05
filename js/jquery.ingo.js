@@ -99,7 +99,7 @@
 
     $.fn.ingo.options = {
         ingoBaseUrl: 'https://ingo.me',
-        google: true,
+        google: false,
         linkedin: true,
         facebook: true,
         manual: false,

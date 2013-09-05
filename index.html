@@ -15,8 +15,8 @@
   <meta name="viewport" content="width=device-width">
 
   <link rel="stylesheet" href="css/main.css">
-  <link rel="stylesheet/less" href="less/main.less">
-  <!--<script type="text/javascript">
+  <!--<link rel="stylesheet/less" href="less/main.less">
+  <script type="text/javascript">
     less = {
       env: "development", // or "production"
       async: false,       // load imports async
@@ -47,13 +47,14 @@
 
 
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
-<script src="http://cdn.ingo.me/js/ingo.login.widget.js"></script>
+<script src="js/jquery.ingo.js"></script>
 
 <script>
   $(function() {
     $('.ingo-register').ingo({
       ingoId: 'INSERT INGO_ID HERE',
-      manual: 'INSERT LINK FOR MANUAL REGISTRATION HERE'
+      manual: 'INSERT LINK FOR MANUAL REGISTRATION HERE',
+      autostart: true
     });
   });
 </script>
