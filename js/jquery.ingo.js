@@ -2,13 +2,30 @@
 
     var IngoPopup = {
         popUpOpenClass: 'ingo-popup-open',
-
+        body: $('body'),
         init: function(options, self){
             $this = self;
             IngoPopup.options = $.extend( {}, $.fn.ingo.options, options );
-            var popupCode = IngoPopup.popupCode();
-            $('body').append(popupCode);
+            IngoPopup.codeAppend();
             IngoPopup.listener($this);
+            IngoPopup.errorsHandler();
+            if(IngoPopup.options.autostart){
+                $this.trigger('click');
+            }
+        },
+        errorsHandler: function(){
+            if(!IngoPopup.options.ingoId){
+                throw new Error('To make working InGo plugin you should specify in options ingoId');
+            }
+            if(!typeof($.fn.on)==='function'){
+                throw new Error('Please update your JQuery version >1.7.2');
+            }
+        },
+        codeAppend: function(){
+            var popupCode = IngoPopup.popupCode();
+            if(IngoPopup.body.children('.ingo-popup-wrap').length === 0) {
+                IngoPopup.body.append(popupCode);
+            }
         },
         listener: function(self){
             $this = $(self);
@@ -16,72 +33,80 @@
                 e.preventDefault();
                 IngoPopup.openPopup();
             });
-            $('body').on('click', '.ingo-popup-close', function(e){
+            IngoPopup.body.on('click', '.ingo-popup-close', function(e){
                 e.preventDefault();
                 IngoPopup.closePopup();
             })
         },
         openPopup: function(){
-            $('body').addClass(IngoPopup.popUpOpenClass);
+            IngoPopup.body.addClass(IngoPopup.popUpOpenClass);
+            IngoPopup.setHeight();
         },
         closePopup: function(){
-            $('body').removeClass(IngoPopup.popUpOpenClass);
+            IngoPopup.body.removeClass(IngoPopup.popUpOpenClass);
         },
         ingoAuthenticationUrl: function(baseUrl, ingoId, service) {
             var source = location.host;
             return baseUrl + '/checkSource/' + ingoId + '?nextUrl=' + encodeURIComponent('/' + service + '/authenticate?nextUrl=/event/' + ingoId) + '&source='+encodeURIComponent(source);
         },
 
-        popupCode: function(options) {
-            var popupHtml = '', size = 0, withManual = false;
-
+        popupCode: function(options, self) {
+            var popupHtml = '',
+                $this = $(self);
             popupHtml += '  <div class="ingo-popup">';
-            popupHtml += "    <h3>Speed up registration with<\/h3>";
+            if(!IngoPopup.options.smallPopup){
+                popupHtml += "    <h3>"+IngoPopup.options.headerText+"<\/h3>";
+            }
             if(IngoPopup.options.linkedin) {
-                size += 1;
                 popupHtml += '    <a class="in" href="' + IngoPopup.ingoAuthenticationUrl(IngoPopup.options.ingoBaseUrl, IngoPopup.options.ingoId, 'linkedin') + '">';
                 popupHtml += '    Register with LinkedIn</a>';
             }
             if(IngoPopup.options.facebook) {
-                size += 1;
                 popupHtml += '    <a class="fb" href="' + IngoPopup.ingoAuthenticationUrl(IngoPopup.options.ingoBaseUrl, IngoPopup.options.ingoId, 'facebook') + '">';
                 popupHtml += '    Register with Facebook</a>';
             }
             if(IngoPopup.options.google) {
-                size += 1;
                 popupHtml += '    <a class="gg" href="' + IngoPopup.ingoAuthenticationUrl(IngoPopup.options.ingoBaseUrl, IngoPopup.options.ingoId, 'google') + '">';
                 popupHtml += '    Register with Google</a>';
             }
-            popupHtml += '    <div class="manual">';
-            if(IngoPopup.options.manual) {
-                withManual = true;
-                popupHtml += '      <a class=\"pull-left\" href="' + IngoPopup.options.manual + '">' + IngoPopup.options.manualText + '</a>';
+            if(!IngoPopup.options.smallPopup){
+                popupHtml += '    <div class="manual">';
+                if(IngoPopup.options.manual) {
+                    withManual = true;
+                    popupHtml += '      <a class=\"pull-left\" href="' + IngoPopup.options.manual + '">' + IngoPopup.options.manualText + '</a>';
+                }
+                popupHtml += "      <a href=\"#\" class=\"ingo-popup-close pull-right\"><\/a>";
+                popupHtml += '    </div>';
             }
-            popupHtml += "      <a href=\"#\" class=\"ingo-popup-close pull-right\"><\/a>";
-            popupHtml += '    </div>';
             popupHtml += '  </div>';
-            return '<div class="ingo-popup-wrap ' + 'size-' + size + ' ' + (withManual? 'with-manual' : '') +'">' + popupHtml + '</div>';
+            return '<div class="ingo-popup-wrap ">' + popupHtml + '</div>';
+        },
+        setHeight: function(){
+            var popup = $('.ingo-popup'),
+                popupHeight = popup.outerHeight();
+            console.log(popupHeight);
+
         }
     };
 
     $.fn.ingo = function( options ) {
         return this.each(function() {
             var ingoPopup = Object.create( IngoPopup );
-
             ingoPopup.init( options, this );
-
             $.data( this, 'ingo', ingoPopup );
         });
     };
 
     $.fn.ingo.options = {
         ingoBaseUrl: 'https://ingo.me',
-        google: false,
+        google: true,
         linkedin: true,
         facebook: true,
         manual: false,
         manualText: 'Or register manually',
-        autostart: false
+        autostart: false,
+        headerText: 'Speed up registration with',
+        smallPopup: false
     };
 
 
