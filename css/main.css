@@ -26,35 +26,45 @@
 .ingo-popup-open .ingo-popup-wrap {
   display: block;
 }
-.ingo-popup-wrap.size-1 .ingo-popup {
-  height: 75px;
-  margin-top: -37.5px;
-}
-.ingo-popup-wrap.size-1.with-manual .ingo-popup {
-  height: 125px;
-  margin-top: -62.5px;
-}
-.ingo-popup-wrap.size-2 .ingo-popup {
-  height: 125px;
-  margin-top: -62.5px;
-}
-.ingo-popup-wrap.size-2.with-manual .ingo-popup {
-  height: 175px;
-  margin-top: -87.5px;
-}
-.ingo-popup-wrap.size-3 .ingo-popup {
-  height: 175px;
-  margin-top: -87.5px;
-}
-.ingo-popup-wrap.size-3.with-manual .ingo-popup {
-  height: 225px;
-  margin-top: -112.5px;
-}
+/*.ingo-popup-wrap{
+  &.size-1{
+    @height: @maxHeight - 2 * 50px;
+    .ingo-popup{
+      height: @height - 50px;
+      margin-top: -(@height - 50px)/2;
+    }
+    &.with-manual .ingo-popup{
+      height: @height;
+      margin-top: -(@height)/2;
+    }
+  }
+  &.size-2{
+    @height: @maxHeight - 1 * 50px;//225
+    .ingo-popup{
+      height: @height - 50px;
+      margin-top: -(@height - 50px)/2;
+    }
+    &.with-manual .ingo-popup{
+      height: @height;
+      margin-top: -(@height)/2;
+    }
+  }
+  &.size-3{
+    @height: @maxHeight - 0 * 55px;
+    .ingo-popup{
+      height: @height - 50px;
+      margin-top: -(@height - 50px)/2;
+    }
+    &.with-manual .ingo-popup{
+      height: @height;
+      margin-top: -(@height)/2;
+    }
+  }
+}*/
 .ingo-popup {
   background-color: #f0f0f0;
   position: absolute;
   width: 255px;
-  height: 225px;
   top: 50%;
   left: 50%;
   margin-top: -112.5px;
@@ -79,6 +89,9 @@
   font-weight: normal;
   color: #333333;
   line-height: 1;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 .ingo-popup h3:before {
   float: left;
@@ -155,6 +168,11 @@
   color: #0095d8;
   text-decoration: none;
   line-height: 22px;
+  max-width: 190px;
+  overflow: hidden;
+  text-align: left;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 .ingo-popup .manual a:hover {
   text-decoration: underline;
