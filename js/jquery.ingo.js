@@ -57,7 +57,10 @@ if ( typeof Object.create !== 'function' ) {
         },
         ingoAuthenticationUrl: function(baseUrl, ingoId, service) {
             var source = location.host;
-            return baseUrl + '/checkSource/' + ingoId + '?nextUrl=' + encodeURIComponent('/' + service + '/authenticate?nextUrl=/event/' + ingoId) + '&source='+encodeURIComponent(source);
+            if(!IngoPopup.options.local)
+                return baseUrl + '/checkSource/' + ingoId + '?nextUrl=' + encodeURIComponent('/' + service + '/authenticate?nextUrl=/event/' + ingoId) + '&source='+encodeURIComponent(source);
+            else
+                return '/' + service + '/authenticate?nextUrl=' + encodeURIComponent('/event/' + ingoId);
         },
 
         popupCode: function(options, self) {
@@ -114,6 +117,7 @@ if ( typeof Object.create !== 'function' ) {
         manualText: 'Or register manually',
         autostart: false,
         headerText: 'Speed up registration with',
-        smallPopup: false
+        smallPopup: false,
+        local: false
     };
 })( jQuery, window, document);
